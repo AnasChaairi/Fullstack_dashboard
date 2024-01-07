@@ -1,30 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Box, Typography, TextField, Button, Grid, CircularProgress } from "@mui/material";
-import { ResponsiveLine } from "@nivo/line";
 //import { useGetPredictionsQuery } from "state/api";
 
 const PredictiveAnalysis = () => {
 
-  //const { data: predictionData, isLoading } = useGetPredictionsQuery(); // Fetch predictions from API
-  const predictionData = [
-    {
-      id: 'PlantA',
-      data: [
-        { x: '2024-01-01', y: 80 }, // Predicted health score for PlantA on Jan 1, 2024
-        { x: '2024-01-02', y: 85 }, // Predicted health score for PlantA on Jan 2, 2024
-        // ... more predicted data points for PlantA
-      ],
-    },
-    {
-      id: 'PlantB',
-      data: [
-        { x: '2024-01-01', y: 75 }, // Predicted health score for PlantB on Jan 1, 2024
-        { x: '2024-01-02', y: 82 }, // Predicted health score for PlantB on Jan 2, 2024
-        // ... more predicted data points for PlantB
-      ],
-    },
-    // Add more objects for predictions of other plants
-  ];
+
   const [plantInfo, setPlantInfo] = useState({
     name: "",
     type: "",
@@ -43,26 +23,30 @@ const PredictiveAnalysis = () => {
   };
 
   const handlePrediction = () => {
-    const { temperature, humidity } = plantInfo;
+    const { temperature, humidity,ph,rainfall,Potassium } = plantInfo;
 
     // Simulate health score calculation (Replace this with your actual algorithm)
-    const healthScore = calculateHealthScore(parseFloat(temperature), parseFloat(humidity));
+    const healthScore = calculateHealthScore(parseFloat(temperature), parseFloat(humidity),parseFloat(ph),parseFloat(rainfall),parseFloat(Potassium));
 
     setPredictedHealth(healthScore);
   };
 
-  const calculateHealthScore = (temperature, humidity) => {
-    // Example algorithm (can be replaced with your logic)
-    // Health score calculation based on given metrics
+  const calculateHealthScore = (temperature, humidity, ph, rainfall, potassium) => {
     const temperatureImpact = (temperature - 20) * 2; // Example: Each degree from 20 affects health by 2
     const humidityImpact = (60 - humidity) * 1.5; // Example: Each percent below 60 affects health by 1.5
-
+  
+    // Define impacts for pH, rainfall, and potassium
+    const phImpact = (ph - 6) * 10; // Example: Each unit away from pH 6 affects health by 10
+    const rainfallImpact = (rainfall - 500) * 0.05; // Example: Each unit away from 500mm affects health by 0.05
+    const potassiumImpact = (potassium - 50) * 0.5; // Example: Each unit away from 50 affects health by 0.5
+  
     // Combine impacts and limit the health score between 0 and 100
-    let healthScore = 100 - Math.abs(temperatureImpact + humidityImpact);
+    let healthScore = 100 - Math.abs(temperatureImpact + humidityImpact + phImpact + rainfallImpact + potassiumImpact);
     healthScore = Math.max(0, Math.min(healthScore, 100));
-
+  
     return Math.round(healthScore);
   };
+  
   return (
     <Box p={3}>
       <Typography variant="h5" gutterBottom>

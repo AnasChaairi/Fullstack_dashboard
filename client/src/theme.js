@@ -1,44 +1,41 @@
 // color design tokens export
 export const tokensDark = {
-  green: {
+  primary: {
     0: "#ffffff", // White
     10: "#f6f6f6",
     50: "#f0f0f0",
     100: "#e0e0e0",
     200: "#c2c2c2",
     300: "#a3a3a3",
-    400: "#85bb65", // Lighter green
-    500: "#5ba829", // Main green
-    600: "#4e8b22", // Darker green
-    700: "#3d3d3d",
-    800: "#292929",
-    900: "#141414",
+    400: "#99cc66", // Lighter green (leaf-like)
+    500: "#3b945e", // Main green (forest-like)
+    600: "#2f704c", // Darker green (rich forest)
+    700: "#1e4028",
+    800: "#0d2014",
+    900: "#06100a",
     1000: "#000000", // Black
   },
-  primary: {
-    // blue
-    100: "#e0e0e0",
-    200: "#c2c2c2",
-    300: "#a3a3a3",
-    400: "#85bb65", // Lighter green
-    500: "#5ba829", // Main green
-    600: "#4e8b22", // Darker green
-    700: "#3d3d3d",
-    800: "#292929",
-    900: "#141414",
+  green: {
+    100: "#d4edf7", // Sky Blue
+    200: "#a9d8f2",
+    300: "#7ec3ec",
+    400: "#53afe7",
+    500: "#289ae1", // Main Blue (deep sky)
+    600: "#1f77b4", // Darker Blue (ocean)
+    700: "#13507a",
+    800: "#0c3959",
+    900: "#061c2c",
   },
   secondary: {
-    // yellow
-    50: "#f0f0f0", // manually adjusted
-    100: "#fff6e0",
-    200: "#ffedc2",
-    300: "#ffe3a3",
-    400: "#ffda85",
-    500: "#ffd166",
-    600: "#cca752",
-    700: "#997d3d",
-    800: "#665429",
-    900: "#332a14",
+    100: "#f5f0e6", // Earthy Brown
+    200: "#e7dabf",
+    300: "#d9c498",
+    400: "#cbae70",
+    500: "#bd9849", // Main Brown (soil-like)
+    600: "#937b3b", // Darker Brown (rich soil)
+    700: "#695c2d",
+    800: "#413e1e",
+    900: "#1b1c0f",
   },
 };
 
