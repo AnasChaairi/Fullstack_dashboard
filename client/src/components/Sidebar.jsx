@@ -70,10 +70,6 @@ const navItems = [
     text: "Alerts and Notifications",
     icon: <PieChartOutlined />,
   },
-  {
-    text: "Administration and Configuration",
-    icon: <AdminPanelSettingsOutlined />,
-  },
 ];
 
 const Sidebar = ({

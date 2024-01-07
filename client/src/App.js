@@ -11,6 +11,7 @@ import Overview from "scenes/overview";
 import Layout from "scenes/layout";
 import StatisticalAnalysis from "scenes/stats";
 import PredictiveAnalysis from "scenes/pred";
+import AlertsView from "scenes/Alerts";
 import { Rule } from "@mui/icons-material";
 function App() {
   const mode = useSelector((state) => state.global.mode);
@@ -29,6 +30,7 @@ function App() {
               <Route path="/overview" element={<Overview />} />
               <Route path="/statistical analysis" element={<StatisticalAnalysis/>}/>
               <Route path="/predictive analytics" element={<PredictiveAnalysis/>}/>
+              <Route path="/alerts and notifications" element={<AlertsView/>}/>
             </Route>
           </Routes>
         </ThemeProvider>

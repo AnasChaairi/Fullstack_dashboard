@@ -92,7 +92,7 @@ const Dashboard = () => {
         />
         <StatBox
           title="Recent Added Plant"
-          value="Rose"
+          value="Succulents"
           description="last 7 days"
         />
         {/* ROW 2 */}
